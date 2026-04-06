@@ -15,6 +15,14 @@
     url = "github:BirdeeHub/lzextras";
     flake = false;
   };
+  inputs.plugins-yazi = {
+    url = "github:mikavilpas/yazi.nvim";
+    flake = false;
+  };
+  inputs.plugins-plenary = {
+    url = "github:nvim-lua/plenary.nvim";
+    flake = false;
+  };
   outputs = { self, nixpkgs, wrappers, ... }@inputs:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.platforms.all;

@@ -148,6 +148,9 @@ inputs:
       fidget-nvim
       nvim-lint
       conform-nvim
+
+      yazi-nvim # Add this (or the name generated from your inputs)
+      plenary-nvim # Add the dependency
       nvim-treesitter-textobjects
       # treesitter + grammars
       nvim-treesitter.withAllGrammars
