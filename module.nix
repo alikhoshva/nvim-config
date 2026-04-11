@@ -109,6 +109,8 @@ inputs:
       # --- Fix for nvim-treesitter ---
       gcc # Required by treesitter to compile grammars on the fly
 
+      clang-tools
+
       # --- Fixes for snacks.picker ---
       ripgrep # Provides 'rg' for fast text searching
       fd # Provides 'fd' for fast file finding
@@ -149,7 +151,7 @@ inputs:
       nvim-lint
       conform-nvim
 
-      yazi-nvim # Add this (or the name generated from your inputs)
+      #yazi-nvim # Add this (or the name generated from your inputs)
       plenary-nvim # Add the dependency
       nvim-treesitter-textobjects
       # treesitter + grammars

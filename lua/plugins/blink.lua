@@ -32,6 +32,9 @@ return {
             menu = {
               auto_show = true,
             },
+            list  = {
+              selection = {preselect = true, auto_insert = true}
+            },
           },
           sources = function()
             local type = vim.fn.getcmdtype()

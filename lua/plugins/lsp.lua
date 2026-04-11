@@ -186,4 +186,9 @@ return {
       })
     end,
   },
+  {
+    "clangd",
+    lsp = {filetypes = {"c", "cpp", "objc", "objcpp"},
+    },
+  },
 }
