@@ -11,9 +11,15 @@ return {
         command = "gdb",
         args = { "-i", "dap" }
       }
-
-      -- Mapping: Step Into (Like F11 in VS)
-      vim.keymap.set('n', '<F11>', dap.step_into, { desc = 'Debug: Step Into' })
     end
-  }
+  },
+  {
+        "igorlfs/nvim-dap-view",
+        -- let the plugin lazy load itself
+        lazy = false,
+        version = "1.*",
+        ---@module 'dap-view'
+        ---@type dapview.Config
+        opts = {},
+    },
 }
