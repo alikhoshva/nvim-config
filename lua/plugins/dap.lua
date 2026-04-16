@@ -9,6 +9,8 @@ return {
 				command = "gdb",
 				args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
 			}
+			dap.configurations.cpp = dap.configurations.c
+			dap.configurations.rust = dap.configurations.c
 		end,
 	},
 	{
