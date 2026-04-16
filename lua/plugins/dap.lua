@@ -2,24 +2,22 @@ return {
   {
     "nvim-dap",
     auto_enable = true,
-    after = function()
+    on_plugin = function()
       local dap = require('dap')
-      
       -- Adapter for C++
       dap.adapters.gdb = {
         type = "executable",
         command = "gdb",
         args = { "-i", "dap" }
       }
-    end
+    end,
   },
   {
-        "igorlfs/nvim-dap-view",
-        -- let the plugin lazy load itself
-        lazy = false,
-        version = "1.*",
-        ---@module 'dap-view'
-        ---@type dapview.Config
-        opts = {},
-    },
+    "nvim-dap-view",
+    auto_enable = true,
+    after = { "nvim-dap" },
+    on_plugin = function()
+      require("dap-view").setup({})
+    end,
+  },
 }
