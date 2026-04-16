@@ -150,9 +150,7 @@ inputs:
       fidget-nvim
       nvim-lint
       conform-nvim
-      nvim-dap
       nvim-dap-ui
-      nvim-nio
 
       #yazi-nvim # Add this (or the name generated from your inputs)
       plenary-nvim # Add the dependency
