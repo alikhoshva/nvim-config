@@ -44,7 +44,11 @@
         default = self.wrappers.neovim;
       };
       packages = forAllSystems (system:
-        let pkgs = import nixpkgs { inherit system; };
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
         in {
           neovim = wrapper.config.wrap { inherit pkgs; };
           default = self.packages.${system}.neovim;
