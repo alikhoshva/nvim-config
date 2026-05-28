@@ -1,4 +1,12 @@
 -- NOTE: Welcome to your neovim configuration!
+
+-- VSCode Neovim Extension Compatibility
+-- If running inside VSCode, load a stripped-down configuration and exit.
+if vim.g.vscode then
+  require('core.vscode')
+  return
+end
+
 -- The first 100ish lines are setup,
 -- the rest is usage of lze and various core plugins!
 vim.loader.enable() -- <- bytecode caching
