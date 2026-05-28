@@ -27,7 +27,6 @@ vim.opt.smartcase = true
 -- Keep Neovim yank/paste registers perfectly synced with VSCode and System clipboard
 vim.opt.clipboard = 'unnamedplus'
 
-
 -- 3. Ported Core Neovim Keymaps (From lua/core/keymaps.lua)
 
 -- Move visual selections up/down easily
@@ -39,18 +38,10 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll Down and Center' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll Up and Center' })
 
 -- Keep search results centered in viewport
-vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next Search Result' })
-vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous Search Result' })
+vim.keymap.set('n', 'n', 'nzz', { desc = 'Next Search Result' })
+vim.keymap.set('n', 'N', 'Nzz', { desc = 'Previous Search Result' })
 
--- Handle navigation over wrapped words correctly when count is 0
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = 'Move Up' })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = 'Move Down' })
-
--- Explicit system clipboard bindings
-vim.keymap.set({'v', 'x', 'n'}, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Yank to clipboard' })
-vim.keymap.set({'n', 'v', 'x'}, '<leader>Y', '"+yy', { noremap = true, silent = true, desc = 'Yank line to clipboard' })
-vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p', { noremap = true, silent = true, desc = 'Paste from clipboard' })
-vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', { noremap = true, silent = true, desc = 'Paste from insert mode' })
+-- Explicit system clipboard bindings (Only paste-over remains, as +y is handled by clipboard=unnamedplus)
 vim.keymap.set('x', '<leader>P', '"_dP', { noremap = true, silent = true, desc = 'Paste over selection (No clobber)' })
 
 
@@ -77,5 +68,9 @@ vim.keymap.set('n', '[c', action('workbench.action.editor.previousChange'), { de
 vim.keymap.set('n', '<leader>wd', action('workbench.action.closeActiveEditor'), { desc = 'Close active editor split' })
 vim.keymap.set('n', '<leader>w/', action('workbench.action.splitEditor'), { desc = 'Split editor right' })
 vim.keymap.set('n', '<leader>w-', action('workbench.action.splitEditorOrthogonal'), { desc = 'Split editor down' })
-vim.keymap.set('n', '<C-w>h', action('workbench.action.focusPreviousGroup'), { desc = 'Focus left split' })
-vim.keymap.set('n', '<C-w>l', action('workbench.action.focusNextGroup'), { desc = 'Focus right split' })
+
+-- Standard Vim Split Window Navigation using Ctrl+w (Aligns with VSCode Native Ctrl+H/J/K/L)
+vim.keymap.set('n', '<C-w>h', action('workbench.action.focusLeftGroup'), { desc = 'Focus left split' })
+vim.keymap.set('n', '<C-w>l', action('workbench.action.focusRightGroup'), { desc = 'Focus right split' })
+vim.keymap.set('n', '<C-w>k', action('workbench.action.focusAboveGroup'), { desc = 'Focus above split' })
+vim.keymap.set('n', '<C-w>j', action('workbench.action.focusBelowGroup'), { desc = 'Focus below split' })
